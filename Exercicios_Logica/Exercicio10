@@ -1,0 +1,85 @@
+#Include "Protheus.Ch"
+
+/*Exercício 10 — Jogo de adivinhação:
+Faça um jogo onde o programa gera um número aleatório entre 1 e 100, e o usuário tenta adivinhar.
+A cada tentativa, o programa informa se o palpite é maior ou menor que o número gerado.*/
+
+
+/*/{Protheus.doc} zExer10
+		Abre o jogo de adivinhação
+	@type  User Function
+	@author Cárita
+	@since 11/03/2025
+/*/
+User Function zExer10()
+
+    Local lAcertou          := .F.
+    Local nTentativas       := 0
+    Local nNumOK            := Random(1, 500)
+    Local nNumInput         := Nil    
+
+    While !lAcertou
+
+        nTentativas++
+        nNumInput := fGetNum("Jogo da adivinhação!",3)       
+        
+        If Empty(nNumInput)
+            Alert("Jogo cancelado ou valor nulo! Até a próxima!")
+            Exit        
+        EndIf
+
+        nNumInput := GetDToVal(nNumInput)
+
+        Do Case
+            Case nNumOK == nNumInput
+                Alert('<b><font color="#11e002">Parabéns</font></b>, você acertou!!!')
+                    If nTentativas == 1
+                        Alert("De primeira!!!")
+                        lAcertou := .T.
+                    Else 
+                        Alert("Você precisou de "+cValToChar(nTentativas)+" tentativas!")
+                        lAcertou := .T.
+                    EndIf   
+            Case nNumOK != nNumInput .AND. nNumInput < nNumOK
+                Alert("Errou, um pouco mais...")                    
+            Case nNumOK != nNumInput .AND. nNumInput > nNumOK
+                Alert("Errou, um pouco menos...")                        
+        EndCase
+
+    EndDo
+
+Return
+
+/*/{Protheus.doc} fGetNum
+        Abre a tela com menu de selecao do número
+    @type  Static Function
+    @author Cárita Dias
+    @since 11/03/2025
+/*/
+STATIC Function fGetNum(cTitulo,nTam)
+    Local oDlg
+    Local cGetVar := space(nTam)
+    Local oGet
+    Local oBtn1,oBtn2
+    Local lOk := .F. 
+    Private oFont14 	:= TFont():New("MS Sans Serif",,020,,.F.,,,,,.F.,.F.)
+    Private oFont2		:= TFont():New( "Arial",0,16,,.T.,,,,.F.,.F.,,,,,, )
+    Private oFont3		:= TFont():New( "Arial",0,13,,.F.,,,,.F.,.F.,.T.,,,,,.T. )
+
+
+    DEFINE DIALOG oDlg TITLE (cTitulo)  FROM 0,0 TO 200,350 COLOR CLR_BLACK, CLR_MAGENTA PIXEL
+
+    @ 01,04 SAY "Tente acertar o número que eu pensei..."   FONT oFont2
+    @ 02,04 SAY "(Dica: Está entre 0 e 500)"                FONT oFont3
+    @ 45,75 GET oGet VAR cGetVar  PICTURE "@R 999"        SIZE (nTam*4),12 OF oDlg PIXEL 
+    @ 75,40 BUTTON oBtn1 PROMPT "Confirmar" SIZE 40,15      FONT oFont14 ACTION (lOk := .T. , oDlg:End()) OF oDlg PIXEL
+    @ 75,90 BUTTON oBtn2 PROMPT "Cancelar" SIZE 40,15       FONT oFont14 ACTION (oDlg:End(), cGetVar := Nil) OF oDlg PIXEL 
+
+    ACTIVATE DIALOG oDlg CENTER
+
+    If !lOk
+        AllTrim(cGetVar) := space(nTam)
+    Endif
+
+Return cGetVar
+
