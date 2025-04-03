@@ -21,7 +21,7 @@ Este repositório foi criado para armazenar meus exercícios, projetos e prátic
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/cdmartins/ADVPL.git
    ```
 2. Abra o código no VS Code.
 3. Compile e execute diretamente no ambiente Protheus.
