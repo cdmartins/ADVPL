@@ -14,7 +14,7 @@
 Static nCorCinza := RGB(110, 110, 110)
 Static nCorLinha := RGB(241, 237, 237)
 
-/*/{Protheus.doc} User Function zExer05c
+/*/{Protheus.doc} User Function zExer05
     Relatório PDF de: CDs x Artista x Quantidade de Músicas
 @author CÁRITA DIAS MARTINS DA SILVA
 @since 02/04/2025
@@ -23,7 +23,7 @@ Static nCorLinha := RGB(241, 237, 237)
 @see http://autumncodemaker.com
 /*/
 
-User Function zExer05c()
+User Function zExer05()
 	Local aArea := FWGetArea()
 	Local aPergs   := {}
 	Local xPar0 := Space(15)
@@ -42,7 +42,7 @@ User Function zExer05c()
 Return
 
 /*/{Protheus.doc} fImprime
-Faz a impressão do relatório zExer05c
+Faz a impressão do relatório zExer05
 @author CÁRITA DIAS MARTINS DA SILVA
 @since 02/04/2025
 @version 1.0
@@ -55,7 +55,7 @@ Static Function fImprime()
     Local nTotAux      := 0
     Local nAtuAux      := 0
     Local cQryAux      := ''
-    Local cArquivo     := 'zExer05c'+RetCodUsr()+'_' + dToS(Date()) + '_' + StrTran(Time(), ':', '-') + '.pdf'
+    Local cArquivo     := 'zExer05'+RetCodUsr()+'_' + dToS(Date()) + '_' + StrTran(Time(), ':', '-') + '.pdf'
     Private oPrintPvt
     Private oBrushLin  := TBrush():New(,nCorLinha)
     Private cHoraEx    := Time()
@@ -81,6 +81,9 @@ Static Function fImprime()
     Private oFontMin   := TFont():New(cNomeFont, /*uPar2*/, -9,  /*uPar4*/, .F., /*uPar6*/, /*uPar7*/, /*uPar8*/, /*uPar9*/, .F.)
     Private oFontTit   := TFont():New(cNomeFont, /*uPar2*/, -15, /*uPar4*/, .T., /*uPar6*/, /*uPar7*/, /*uPar8*/, /*uPar9*/, .F.)
      
+    MV_PAR01 = Alltrim(MV_PAR01)
+    MV_PAR02 = Alltrim(MV_PAR02)
+
     //Monta a consulta de dados
     cQryAux += "SELECT "		+ CRLF
     cQryAux += " c.ZD2_CD, "		+ CRLF
@@ -99,6 +102,8 @@ Static Function fImprime()
     cQryAux += " a.D_E_L_E_T_ = '' "		+ CRLF
     cQryAux += " AND "		+ CRLF
     cQryAux += " m.D_E_L_E_T_ = '' "		+ CRLF
+    cQryAux += " AND "		+ CRLF
+    cQryAux += " a.ZD1_CODIGO BETWEEN '"+   MV_PAR01    +"' AND '"  +   MV_PAR02   +"' " + CRLF
     cQryAux += "GROUP BY "		+ CRLF
     cQryAux += " c.ZD2_CD,c.ZD2_NOMECD,a.ZD1_NOME "		+ CRLF
     cQryAux += "ORDER BY "		+ CRLF
@@ -267,7 +272,7 @@ Static Function fImpRod()
     nLinRod += 3
      
     //Dados da Esquerda
-    cTexto := dToC(dDataBase) + '     ' + cHoraEx + '     ' + FunName() + ' (zExer05c)     ' + UsrRetName(RetCodUsr())
+    cTexto := dToC(dDataBase) + '     ' + cHoraEx + '     ' + FunName() + ' (zExer05)     ' + UsrRetName(RetCodUsr())
     oPrintPvt:SayAlign(nLinRod, nColIni, cTexto, oFontRod, 500, 10, /*nClrText*/, PAD_LEFT, /*nAlignVert*/)
      
     //Direita
