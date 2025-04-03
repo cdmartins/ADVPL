@@ -47,7 +47,6 @@ Faz a impressão do relatório zExer05c
 @since 02/04/2025
 @version 1.0
 @type function
-@obs Codigo gerado automaticamente pelo Autumn Code Maker
 @see http://autumncodemaker.com
 /*/
 
@@ -186,7 +185,6 @@ Função que retorna o logo da empresa conforme configuração da DANFE
 @since 02/04/2025
 @version 1.0
 @type function
-@obs Codigo gerado automaticamente pelo Autumn Code Maker
 @see http://autumncodemaker.com
 /*/
 
@@ -200,7 +198,6 @@ Função que imprime o cabeçalho do relatório
 @since 02/04/2025
 @version 1.0
 @type function
-@obs Codigo gerado automaticamente pelo Autumn Code Maker
 @see http://autumncodemaker.com
 /*/
 
@@ -258,7 +255,6 @@ Função que imprime o rodapé e encerra a página
 @since 02/04/2025
 @version 1.0
 @type function
-@obs Codigo gerado automaticamente pelo Autumn Code Maker
 @see http://autumncodemaker.com
 /*/
 
@@ -289,7 +285,6 @@ Função que valida se a linha esta próxima do final, se sim quebra a página
 @since 02/04/2025
 @version 1.0
 @type function
-@obs Codigo gerado automaticamente pelo Autumn Code Maker
 @see http://autumncodemaker.com
 /*/
 
