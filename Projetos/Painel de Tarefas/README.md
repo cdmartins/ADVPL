@@ -12,20 +12,19 @@ Este projeto é uma rotina personalizada para cadastro e controle de tarefas no 
   - Data final deve ser maior que data inicial
 - Relatório em PDF com FWMSPrinter
 
-## 🚀 Como rodar
+##  Como rodar
 
 1. Compile os arquivos `.PRW` do diretório `/src` no Protheus.
 2. Registre a função `zExer04` no configurador.
 3. Crie uma entrada de menu apontando para a função.
 4. Acesse o menu no sistema e utilize normalmente.
 
-> Mais detalhes na pasta [/docs](./docs).
 
 ## 📁 Estrutura
 
 README.md → Visão geral do projeto
 /src → Códigos ADVPL (MVC) 
-/docs → Documentação e passo a passo 
+/Relatórios → Relatórios e Saídas
 
 
 
