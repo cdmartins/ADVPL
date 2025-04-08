@@ -38,6 +38,14 @@ Este guia descreve o passo a passo para configurar um projeto de cadastro de tar
 1. Acesse o sistema via SmartClient.
 2. Vá até o menu criado e utilize a tela de cadastro para inserir tarefas de teste.
 
+
+## 3. Validações
+![image](https://github.com/user-attachments/assets/ec6ff2f5-4bf4-4804-99a8-da5b7f3eb494)
+
+![image](https://github.com/user-attachments/assets/747be5d0-b07b-47bd-a14a-4431bbb89de2)
+
+
+
 ## 7. Criação de Relatórios
 
 1. Em arquivos `.PRW` separados, implementei relatórios com `FWMSPrinter`.
