@@ -70,7 +70,7 @@ Static Function ModelDef()
 	Local oStruct := FWFormStruct(1, cAliasMVC)
 	Local oModel
 	Local bPre := Nil
-	Local bPos := {|| u_z04bPos(), u_z05bPos()}
+	Local bPos := {|| u_z04bPos() .AND. u_z05bPos()}
 	Local bCancel := Nil
 
 
@@ -140,7 +140,7 @@ User Function z05bPos()
 	Local lRet := .T.
 
 	//Validação
-	If cDataFin < cDataIni
+	If cDataFin < cDataIni .AND. !Empty(cDataFin)
         Help(, , "Help", , "Data Inválida!", 1, 0, , , , , , {"Data <b>Finalizar</b> não pode ser menor que a <b>Data Inicial</b>"})
         lRet := .F.	
 	EndIf
