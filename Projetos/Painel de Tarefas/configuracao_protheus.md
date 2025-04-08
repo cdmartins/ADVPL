@@ -50,7 +50,8 @@ Este guia descreve o passo a passo para configurar um projeto de cadastro de tar
 
 1. Em arquivos `.PRW` separados, implementei relatórios com `FWMSPrinter`.
 Saiba mais em:
-   Meus relatórios → [`src/relatorios/`](src/relatorios/)
+  - [`Relatórios`](https://github.com/cdmartins/ADVPL/tree/main/Projetos/Painel%20de%20Tarefas/Relatorios): Códigos ADVPL para geração de relatórios em PDF.
+
 
    
 ---
